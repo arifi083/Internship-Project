@@ -11,7 +11,7 @@
 
 			<div class="box">
 			   <div class="box-header with-border">
-				  <h3 class="box-title">District List</h3>
+				  <h3 class="box-title">State List</h3>
 				</div>
 				<!-- /.box-header -->
 				<div class="box-body">
@@ -21,18 +21,20 @@
 						   <tr>
 							  <th>Division Name</th>
                               <th>District Name</th>
+                              <th>State Name</th>
 							  <th>Action</th>	
 						   </tr>
 						</thead>
 <tbody>
 
-	@foreach($districts as $item)
+	@foreach($states as $item)
 	<tr>
 	  <td>{{ $item->division->division_name }}</td>
-      <td>{{ $item->district_name }}</td>
+      <td>{{ $item->district->district_name }}</td>
+      <td>{{ $item->state_name }}</td>
 	  <td>
-		<a href="{{ route('district.edit',$item->id) }}" class="btn btn-info" title="Edit Division"><i class="fa fa-pencil"></i> </a>
-		<a href="{{ route('district.delete',$item->id) }}" class="btn btn-danger" title="Delete Division" id="delete"><i class="fa fa-trash"></i></a>
+		<a href="{{ route('state.edit',$item->id) }}" class="btn btn-info" title="Edit state"><i class="fa fa-pencil"></i> </a>
+		<a href="{{ route('state.delete',$item->id) }}" class="btn btn-danger" title="Delete state" id="delete"><i class="fa fa-trash"></i></a>
 
 	  </td>	
 	</tr>
@@ -52,18 +54,18 @@
 			</div>
 			<!-- /.col -->
 
-<!--  -----------------Add Division page -----------------------  -->
+<!--  -----------------Add State page -----------------------  -->
            <div class="col-4">
 
             <div class="box">
                <div class="box-header with-border">
-	            <h3 class="box-title">Add District</h3> 
+	            <h3 class="box-title">Add State</h3> 
 	        </div>
 	       <!-- /.box-header -->
 	          <div class="box-body">
 	            <div class="table-responsive">
 		             
-            <form method="POST" action="{{ route('district.store') }}">
+            <form method="POST" action="{{ route('state.store') }}">
                 @csrf
                 
 
@@ -87,11 +89,33 @@
 
                 </div>
 
+
                 <div class="form-group">
-		            <h5>District Name<span class="text-danger">*</span></h5>
+                    <h5>District Select <span class="text-danger">*</span></h5>
+                    <div class="controls">
+                      <select name="district_id" id=""  class="form-control">
+
+                          <option value="" selected="" disabled="">Select District</option>
+
+                          @foreach($districts as $dis)
+                          <option value="{{ $dis->id }}"> {{ $dis->district_name }} </option>
+                          @endforeach
+
+                          @error('district_id') 
+	                           <span class="text-danger">{{ $message }}</span>
+	                     @enderror
+
+                       </select>
+                    </div>
+
+                </div>
+
+
+                <div class="form-group">
+		            <h5>State Name<span class="text-danger">*</span></h5>
 		            <div class="controls">
-	                    <input type="text"  name="district_name" class="form-control" > 
-						@error('district_name') 
+	                    <input type="text"  name="state_name" class="form-control" > 
+						@error('state_name') 
 	                    <span class="text-danger">{{ $message }}</span>
 	                    @enderror
 	                </div>
