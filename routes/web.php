@@ -281,6 +281,13 @@ Route::group(['prefix'=>'user','middleware' => ['user','auth'],'namespace'=>'Use
 
 
 
+ //frontend coupon option
+ Route::post('/coupon-apply', [CartController::class,'CouponApply']);
+ Route::get('/coupon-calculation', [CartController::class,'CouponCalculation']);
+
+
+
+
 
 
 

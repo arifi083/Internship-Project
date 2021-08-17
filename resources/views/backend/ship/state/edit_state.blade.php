@@ -10,7 +10,7 @@
 		 
 
 <!--  -----------------edit state page -----------------------  -->
-           <div class="col-12">
+           <div class="col-6">
 
             <div class="box">
                <div class="box-header with-border">
