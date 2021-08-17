@@ -632,8 +632,13 @@ function addToCart(){
             url: '/user/cart-remove/'+id,
             dataType:'json',
             success:function(data){
-            cart();
-            miniCart();
+
+             couponCalculation();
+             cart();
+             miniCart();
+             
+             $('#couponField').show();
+             $('#coupon_name').val('');
 
 
              // Start Message 
