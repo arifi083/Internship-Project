@@ -672,8 +672,10 @@ function addToCart(){
             url: '/cart-Increment/'+rowId,
             dataType:'json',
             success:function(data){
-            cart();
-            miniCart();
+              
+              couponCalculation();
+              cart();
+              miniCart();
 
             }
         });
@@ -688,8 +690,10 @@ function addToCart(){
             url: '/cart-cartDecrement/'+rowId,
             dataType:'json',
             success:function(data){
-            cart();
-            miniCart();
+
+              couponCalculation();
+              cart();
+              miniCart();
 
             }
         });
@@ -722,6 +726,8 @@ function addToCart(){
               
               success:function(data){
 
+                couponCalculation(); 
+                $('#couponField').hide();
 
                   // Start Message 
                 const Toast = Swal.mixin({
@@ -806,6 +812,51 @@ function addToCart(){
 
 
 <!--  //////////////// ===========End Coupon Apply  ================= ////  -->
+
+<!--  //////////////// ===========start Coupon Remove  ================= ////  -->
+<script type="text/javascript">
+     function couponRemove(){
+          $.ajax({
+              type: 'GET',
+              dataType:'json',
+              url: "{{ url('/coupon-remove') }}",
+              
+              success:function(data){
+
+                couponCalculation();
+                $('#couponField').show();
+                $('#coupon_name').val('');
+
+                  // Start Message 
+                const Toast = Swal.mixin({
+                      toast: true,
+                      position: 'top-end',
+                     
+                      showConfirmButton: false,
+                      timer: 3000
+                    })
+                if ($.isEmptyObject(data.error)) {
+                    Toast.fire({
+                        type: 'success',
+                        icon: 'success',
+                        title: data.success
+                    })
+                }else{
+                    Toast.fire({
+                        type: 'error',
+                        icon: 'error',
+                        title: data.error
+                    })
+                }
+                // End Message 
+
+            }
+        });
+    }
+
+
+</script>
+<!--  //////////////// ===========End Coupon Remove  ================= ////  -->
 
 </body>
 </html>
