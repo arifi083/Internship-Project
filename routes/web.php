@@ -19,6 +19,7 @@ use App\Http\Controllers\Frontend\CartController;
 
 use App\Http\Controllers\User\WishlistController;
 use App\Http\Controllers\User\CartPageController;
+use App\Http\Controllers\User\CheckoutController;
 
 use App\Http\Controllers\DeleteController;
 
@@ -289,6 +290,14 @@ Route::group(['prefix'=>'user','middleware' => ['user','auth'],'namespace'=>'Use
 
  // Check out route
  Route::get('/checkout', [CartController::class,'CheckoutCreate'])->name('checkout');
+
+ //district data
+ Route::get('/district-get/ajax/{division_id}', [CheckoutController::class,'DistrictGetAjax']);
+ //state data
+ Route::get('/state-get/ajax/{district_id}', [CheckoutController::class,'StateGetAjax']);
+
+
+
 
 
 
