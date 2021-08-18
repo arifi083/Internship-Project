@@ -296,6 +296,10 @@ Route::group(['prefix'=>'user','middleware' => ['user','auth'],'namespace'=>'Use
  //state data
  Route::get('/state-get/ajax/{district_id}', [CheckoutController::class,'StateGetAjax']);
 
+ Route::post('/checkout/store/', [CheckoutController::class,'CheckoutStore'])->name('checkout.store');
+
+
+
 
 
 
