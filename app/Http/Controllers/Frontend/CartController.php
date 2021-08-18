@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Session;
 use App\Models\Product;
 use App\Models\Coupon;
 use Carbon\Carbon;
+use Auth;
 
 
 class CartController extends Controller
@@ -135,6 +136,39 @@ class CartController extends Controller
         return response()->json(['success' => 'Coupon Remove Successfully']);
     }
 
+
+
+
+
+    //checkout method
+    public function CheckoutCreate(){
+        if(Auth::check()){
+            if(Cart::total() > 0){
+
+                $carts = Cart::content();
+                $cartQty = Cart::count();
+                $cartTotal = Cart::total();
+                return view('frontend.checkout.checkout_view',compact('carts','cartQty','cartTotal'));
+            }else{
+
+                $notification = array(
+                    'message' => 'shopping at least one product',
+                    'alert-type' => 'error'
+                );         
+                return Redirect()->to('/')->with($notification);
+
+            }
+
+        }else{
+            $notification = array(
+                'message' => 'you nedd to login first',
+                'alert-type' => 'error'
+            );         
+            return Redirect()->route('login')->with($notification);
+
+        }
+    }
+   
 
 
 

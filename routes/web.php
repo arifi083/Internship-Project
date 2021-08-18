@@ -287,6 +287,10 @@ Route::group(['prefix'=>'user','middleware' => ['user','auth'],'namespace'=>'Use
  Route::get('/coupon-remove', [CartController::class,'CouponRemove']);
 
 
+ // Check out route
+ Route::get('/checkout', [CartController::class,'CheckoutCreate'])->name('checkout');
+
+
 
 
 
