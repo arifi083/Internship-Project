@@ -20,6 +20,8 @@ use App\Http\Controllers\Frontend\CartController;
 use App\Http\Controllers\User\WishlistController;
 use App\Http\Controllers\User\CartPageController;
 use App\Http\Controllers\User\CheckoutController;
+use App\Http\Controllers\User\CashController;
+use App\Http\Controllers\User\AllUserController;
 
 use App\Http\Controllers\DeleteController;
 
@@ -266,8 +268,10 @@ Route::group(['prefix'=>'user','middleware' => ['user','auth'],'namespace'=>'Use
    Route::get('/wishlist', [WishlistController::class,'ViewWishlist'])->name('wishlist');
    Route::get('/get-wishlist-product', [WishlistController::class,'GetWishlistProduct']);
    Route::get('/wishlist-remove/{id}', [WishlistController::class,'RemoveWishlistProduct']);
+   Route::post('/cash/order/', [CashController::class,'CashOrder'])->name('cash.order');
 
-  
+   Route::get('/my/orders', [AllUserController::class,'MyOrders'])->name('my.orders');
+   Route::get('/order_details/{order_id}', [AllUserController::class,'OrderDetails']);
    // My Cart Page All Routes  age akne silo. authenticated user access krte parto.
 });
 
