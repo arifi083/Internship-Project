@@ -232,6 +232,13 @@ Route::prefix('orders')->group(function(){
   Route::get('/delivered/orders', [OrderController::class, 'DeliveredOrders'])->name('delivered-orders');
   Route::get('/cancel/orders', [OrderController::class, 'CancelOrders'])->name('cancel-orders');
 
+  // Update Status
+  Route::get('/pending/confirm/{order_id}', [OrderController::class, 'PendingToConfirm'])->name('pending-confirm');
+  Route::get('/confirm/to/processing/{order_id}', [OrderController::class, 'ConfirmToProcessing'])->name('confirm-processing');
+  Route::get('/processing/to/picked/{order_id}', [OrderController::class, 'ProcessingToPicked'])->name('processing-picked');
+  Route::get('/picked/to/shipped/{order_id}', [OrderController::class, 'PickedToShipped'])->name('picked-shipped');
+  Route::get('shipped/to/delivered{order_id}', [OrderController::class, 'ShippedToDelivered'])->name('shipped-delivered');
+
 });
 
 
