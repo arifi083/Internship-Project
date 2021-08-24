@@ -1,6 +1,10 @@
 @extends('frontend.main_master')
 @section('content')
 
+@section('title')
+ order view
+@endsection
+
 <div class="body-content">
 	<div class="container">
 		<div class="row">

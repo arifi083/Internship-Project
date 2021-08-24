@@ -12,6 +12,7 @@ use App\Http\Controllers\Backend\ProductController;
 use App\Http\Controllers\Backend\SliderController;
 use App\Http\Controllers\Backend\CouponController;
 use App\Http\Controllers\Backend\ShippingAreaController;
+use App\Http\Controllers\Backend\OrderController;
 
 use App\Http\Controllers\Frontend\LanguageController;
 use App\Http\Controllers\Frontend\IndexController;
@@ -216,6 +217,22 @@ Route::prefix('shipping')->group(function(){
  
 });
 
+
+
+//admin orders all routse
+Route::prefix('orders')->group(function(){
+
+  Route::get('/pending/orders', [OrderController::class, 'PendingOrders'])->name('pending-orders');
+  Route::get('/pending/orders/details/{order_id}', [OrderController::class, 'PendingOrdersDetails'])->name('pending.order.details');
+
+  Route::get('/confirmed/orders', [OrderController::class, 'ConfirmedOrders'])->name('confirmed-orders');
+  Route::get('/processing/orders', [OrderController::class, 'ProcessingOrders'])->name('processing-orders');
+  Route::get('/picked/orders', [OrderController::class, 'PickedOrders'])->name('picked-orders');
+  Route::get('/shipped/orders', [OrderController::class, 'ShippedOrders'])->name('shipped-orders');
+  Route::get('/delivered/orders', [OrderController::class, 'DeliveredOrders'])->name('delivered-orders');
+  Route::get('/cancel/orders', [OrderController::class, 'CancelOrders'])->name('cancel-orders');
+
+});
 
 
 

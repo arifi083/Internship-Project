@@ -1,6 +1,10 @@
 @extends('frontend.main_master')
 @section('content')
 
+@section('title')
+ order invoice and generate pdf
+@endsection
+
 <div class="body-content">
 	<div class="container">
 		<div class="row">
@@ -87,7 +91,7 @@
                     
                             <tr>
                                 <th> Order Total : </th>
-                                <th>{{ $order->amount }} </th>
+                                <th>${{ $order->amount }} </th>
                             </tr>
                             <tr>
                                 <th> Order : </th>
@@ -180,8 +184,17 @@
 
 
 
-            </div> <!-- end oreder item row -->
+            </div> <!-- end order item row -->
+            
+            @if($order->status !== "delivered")
 
+            @else
+              <div class="form-group">
+                <label for="label"> Order Return Reason:</label>
+                <textarea name="return_reason" id="" class="form-control" cols="30" rows="05">Return Reason</textarea>
+
+               </div>
+            @endif
            
 
 
