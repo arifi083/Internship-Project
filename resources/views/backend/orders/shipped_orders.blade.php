@@ -38,7 +38,7 @@
     <td> <span class="badge badge-pill badge-primary">{{ $item->status }} </span> </td>
 	<td>
 		<a href="{{ route('pending.order.details',$item->id) }}" class="btn btn-info" title="Edit Coupon"><i class="fa fa-eye"></i> </a>
-		<a href="" class="btn btn-danger" title="Delete Coupon" id="delete"><i class="fa fa-trash"></i></a>
+		<a target="_blank" href="{{ route('invoice.download',$item->id) }}" class="btn btn-danger" title="Invoice Download"><i class="fa fa-download"></i></a>
 
 	</td>	
 	</tr>
