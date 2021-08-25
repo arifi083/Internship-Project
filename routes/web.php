@@ -13,6 +13,7 @@ use App\Http\Controllers\Backend\SliderController;
 use App\Http\Controllers\Backend\CouponController;
 use App\Http\Controllers\Backend\ShippingAreaController;
 use App\Http\Controllers\Backend\OrderController;
+use App\Http\Controllers\Backend\ReportController;
 
 use App\Http\Controllers\Frontend\LanguageController;
 use App\Http\Controllers\Frontend\IndexController;
@@ -246,6 +247,27 @@ Route::prefix('orders')->group(function(){
 });
 
 
+// Admin Reports Routes 
+
+Route::prefix('reports')->group(function(){
+
+  Route::get('/view', [ReportController::class, 'ReportView'])->name('all-reports');
+  Route::post('/search/by/date', [ReportController::class, 'ReportByDate'])->name('search-by-date');
+  Route::post('/search/by/month', [ReportController::class, 'ReportByMonth'])->name('search-by-month');
+  Route::post('/search/by/year', [ReportController::class, 'ReportByYear'])->name('search-by-year');
+
+});
+
+
+
+
+// Admin Reports Routes 
+
+Route::prefix('alluser')->group(function(){
+
+  Route::get('/view', [AdminProfileController::class, 'AllUsers'])->name('all-user');
+  
+});
 
 
 
@@ -301,6 +323,10 @@ Route::group(['prefix'=>'user','middleware' => ['user','auth'],'namespace'=>'Use
    Route::get('/my/orders', [AllUserController::class,'MyOrders'])->name('my.orders');
    Route::get('/order_details/{order_id}', [AllUserController::class,'OrderDetails']);
    Route::get('/invoice_download/{order_id}', [AllUserController::class,'InvoiceDownload']);
+
+   Route::post('/return/order/{order_id}', [AllUserController::class,'ReturnOrder'])->name('return.order');
+   Route::get('/return/order/list', [AllUserController::class,'ReturnOrderList'])->name('return.order.list');
+   Route::get('/cancel/orders', [AllUserController::class,'CancelOrders'])->name('cancel.orders');
 
    // My Cart Page All Routes  age akne silo. authenticated user access krte parto.
 });
