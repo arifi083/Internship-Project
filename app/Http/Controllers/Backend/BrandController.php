@@ -54,7 +54,7 @@ class BrandController extends Controller
     }
 
 
-    public function BrandUpdate(Request $request){
+    public function BrandUpdate(Request $request){ 
         $brand_id= $request->id;
         $old_image=$request->old_image;
 

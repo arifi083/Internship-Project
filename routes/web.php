@@ -284,6 +284,10 @@ Route::prefix('blog')->group(function(){
   // Admin View Blog Post Routes 
   Route::get('/add/post', [BlogController::class, 'AddBlogPost'])->name('add-post');
   Route::post('/post/store', [BlogController::class, 'BlogPostStore'])->name('post.store');
+  Route::get('/post/list', [BlogController::class, 'BlogPostList'])->name('post-list');
+  Route::get('/post/edit/{id}', [BlogController::class, 'BlogPostEdit'])->name('blog.post.edit');
+  Route::post('/post/update/{id}', [BlogController::class, 'BlogPostUpdate'])->name('post.update');
+  Route::get('/post/delete/{id}', [BlogController::class, 'BlogPostDelete'])->name('blog.post.delete');
  
 });
 
