@@ -14,6 +14,7 @@ use App\Http\Controllers\Backend\CouponController;
 use App\Http\Controllers\Backend\ShippingAreaController;
 use App\Http\Controllers\Backend\OrderController;
 use App\Http\Controllers\Backend\ReportController;
+use App\Http\Controllers\Backend\BlogController;
 
 use App\Http\Controllers\Frontend\LanguageController;
 use App\Http\Controllers\Frontend\IndexController;
@@ -267,6 +268,16 @@ Route::prefix('alluser')->group(function(){
 
   Route::get('/view', [AdminProfileController::class, 'AllUsers'])->name('all-user');
   
+});
+
+
+// Admin Blog Routes 
+
+Route::prefix('blog')->group(function(){
+
+  Route::get('/category', [BlogController::class, 'BlogCategory'])->name('blog-category');
+ 
+
 });
 
 
