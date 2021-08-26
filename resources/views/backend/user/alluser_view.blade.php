@@ -11,7 +11,7 @@
 
 			<div class="box">
 			   <div class="box-header with-border">
-				  <h3 class="box-title">Brand List</h3>
+				  <h3 class="box-title">Total User <span class="badge badge-pill badge-danger"> {{ count($users) }} </span></h3>
 				</div>
 				<!-- /.box-header -->
 				<div class="box-body">
@@ -37,7 +37,14 @@
 	    <td>{{ $user->name }}</td>
 	    <td>{{ $user->email }}</td>
         <td>{{ $user->phone }}</td>
-        <td> <span class="badge badge-pill badge-success">Active Now</span></td>
+        <td> 
+	       @if($user->UserOnline())
+            <span class="badge badge-pill badge-success">Active Now</span>
+		  @else
+              <span class="badge badge-pill badge-danger">{{ Carbon\Carbon::parse($user->last_seen)->diffForHumans() }}</span>
+		  @endif 
+		</td>
+			
 	    <td>
 		   <a href="" class="btn btn-info" title="Edit Data"><i class="fa fa-pencil"></i> </a>
 		   <a href="" class="btn btn-danger" title="Delete Data" id="delete"><i class="fa fa-trash"></i></a>
