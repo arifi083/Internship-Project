@@ -276,8 +276,15 @@ Route::prefix('alluser')->group(function(){
 Route::prefix('blog')->group(function(){
 
   Route::get('/category', [BlogController::class, 'BlogCategory'])->name('blog-category');
- 
+  Route::post('/store', [BlogController::class, 'BlogCategoryStore'])->name('blogcategory.store');
+  Route::get('/category/edit/{id}', [BlogController::class, 'BlogCategoryEdit'])->name('blog.category.edit');
+  Route::post('/category/update/{id}', [BlogController::class, 'BlogCategoryUpdate'])->name('blogcategory.update');
+  Route::get('/category/delete/{id}', [BlogController::class, 'BlogCategoryDelete'])->name('blog.category.delete');
 
+  // Admin View Blog Post Routes 
+  Route::get('/add/post', [BlogController::class, 'AddBlogPost'])->name('add-post');
+  Route::post('/post/store', [BlogController::class, 'BlogPostStore'])->name('post.store');
+ 
 });
 
 
