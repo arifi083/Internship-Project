@@ -4,6 +4,7 @@ namespace App\Models\Blog;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Blog\BlogPostCategory;
 
 class BlogPost extends Model
 {

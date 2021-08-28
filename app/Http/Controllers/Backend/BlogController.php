@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Backend;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Blog\BlogPostCategory;
-use App\Models\Blog\BlogPost ;
+use App\Models\Blog\BlogPost;
 use Carbon\Carbon;
 use Image;
 
@@ -116,7 +116,7 @@ class BlogController extends Controller
 
         $image =  $request->file('post_image');
         $name_gen = hexdec(uniqid()).'.'.$image->getClientOriginalExtension();
-        Image::make($image)->resize(780,450)->save('upload/post/'.$name_gen);
+        Image::make($image)->resize(780,433)->save('upload/post/'.$name_gen);
         $save_url = 'upload/post/'.$name_gen;
 
 

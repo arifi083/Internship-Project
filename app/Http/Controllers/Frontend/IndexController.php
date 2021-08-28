@@ -10,6 +10,7 @@ use App\Models\Product;
 use App\Models\Slider;
 use App\Models\MultiImg;
 use App\Models\Brand;
+use App\Models\Blog\BlogPost;
 use Illuminate\Support\Facades\Hash;
 use Auth; 
 
@@ -38,9 +39,11 @@ class IndexController extends Controller
         //return $skip_category->id;
         //die();
 
+        $blogpost  = BlogPost::latest()->get();
+
         return view('frontend.index',compact('categories','sliders','products','featured','hot_deals',
         'special_offer','special_deals','skip_category_0','skip_product_0',
-        'skip_category_1','skip_product_1','skip_brand_1','skip_brand_product_1'));
+        'skip_category_1','skip_product_1','skip_brand_1','skip_brand_product_1','blogpost'));
     }
 
     public function UserLogout(){

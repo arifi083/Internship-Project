@@ -19,6 +19,7 @@ use App\Http\Controllers\Backend\BlogController;
 use App\Http\Controllers\Frontend\LanguageController;
 use App\Http\Controllers\Frontend\IndexController;
 use App\Http\Controllers\Frontend\CartController;
+use App\Http\Controllers\Frontend\HomeBlogController;
 
 use App\Http\Controllers\User\WishlistController;
 use App\Http\Controllers\User\CartPageController;
@@ -379,6 +380,12 @@ Route::group(['prefix'=>'user','middleware' => ['user','auth'],'namespace'=>'Use
  Route::get('/state-get/ajax/{district_id}', [CheckoutController::class,'StateGetAjax']);
 
  Route::post('/checkout/store/', [CheckoutController::class,'CheckoutStore'])->name('checkout.store');
+
+ //  Frontend Blog Show Routes 
+ Route::get('/blog', [HomeBlogController::class,'AddBlogPost'])->name('home.blog');
+ Route::get('/post/details/{id}', [HomeBlogController::class,'DetailsBlogPost'])->name('post.details');
+ Route::get('/blog/category/post/{category_id}', [HomeBlogController::class, 'HomeBlogCatPost']);
+
 
 
 

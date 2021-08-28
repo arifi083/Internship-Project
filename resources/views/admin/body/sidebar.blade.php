@@ -130,8 +130,9 @@
           </a>
           <ul class="treeview-menu">
     <li class="{{ ($route == 'blog-category')? 'active':'' }}"><a href="{{ route('blog-category') }}"><i class="ti-more"></i>Blog Category</a></li>
-    <li class="{{ ($route == 'add-post')? 'active':'' }}"><a href="{{ route('add-post') }}"><i class="ti-more"></i>Add Blog Post</a></li>
     <li class="{{ ($route == 'post-list')? 'active':'' }}"><a href="{{ route('post-list') }}"><i class="ti-more"></i>Blog Post list</a></li>
+    <li class="{{ ($route == 'add-post')? 'active':'' }}"><a href="{{ route('add-post') }}"><i class="ti-more"></i>Add Blog Post</a></li>
+    
    
           </ul>
         </li> 

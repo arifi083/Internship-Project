@@ -12,6 +12,7 @@
 			<div class="box">
 			   <div class="box-header with-border">
 				  <h3 class="box-title">Blog Post List <span class="badge badge-pill badge-danger"> {{ count($blogpost) }} </span></h3>
+		<a href="{{ route('add-post') }}" class="btn btn-success" style="float: right;">Add Post</a>		  
 				</div>
 				<!-- /.box-header -->
 				<div class="box-body">
