@@ -69,7 +69,7 @@
            @endphp
 
           <!-- ==================== LOGO == {{ asset('frontend/') }}======================= -->
-          <div class="logo"> <a href="{{ url('/') }}"> <img src="{{ $setting->logo }}" alt="logo"> </a> </div>
+          <div class="logo"> <a href="{{ url('/') }}"> <img src="{{ asset('frontend/assets/images/logo1.png') }}" alt="logo"> </a> </div>
           <!-- /.logo --> 
 
 
