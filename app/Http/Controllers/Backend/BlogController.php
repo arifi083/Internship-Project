@@ -170,7 +170,7 @@ class BlogController extends Controller
             unlink($old_image);
             $image =  $request->file('post_image');
             $name_gen = hexdec(uniqid()).'.'.$image->getClientOriginalExtension();
-            Image::make($image)->resize(780,4300)->save('upload/post/'.$name_gen);
+            Image::make($image)->resize(780,430)->save('upload/post/'.$name_gen);
             $save_url = 'upload/post/'.$name_gen;
 
             BlogPost::findOrFail($id)->update([
