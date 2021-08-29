@@ -16,6 +16,7 @@ use App\Http\Controllers\Backend\OrderController;
 use App\Http\Controllers\Backend\ReportController;
 use App\Http\Controllers\Backend\BlogController;
 use App\Http\Controllers\Backend\SiteSettingController;
+use App\Http\Controllers\Backend\ReturnController;
 
 use App\Http\Controllers\Frontend\LanguageController;
 use App\Http\Controllers\Frontend\IndexController;
@@ -301,6 +302,17 @@ Route::prefix('setting')->group(function(){
   Route::post('/site/update', [SiteSettingController::class, 'SiteSettingUpdate'])->name('update.sitesetting');
   Route::get('/seo', [SiteSettingController::class, 'SeoSetting'])->name('seo.setting');
   Route::post('/seo/update', [SiteSettingController::class, 'SeoSettingUpdate'])->name('update.seosetting');
+  
+});
+
+
+// Admin Return Request Routes 
+Route::prefix('return')->group(function(){
+
+  Route::get('/admin/request', [ReturnController::class, 'ReturnRequest'])->name('return.request');
+  Route::get('/admin/request/approve/{order_id}', [ReturnController::class, 'ReturnRequestApprove'])->name('return.approve');
+  Route::get('/admin/all/request', [ReturnController::class, 'ReturnAllRequest'])->name('all.request');
+  
   
 });
 
