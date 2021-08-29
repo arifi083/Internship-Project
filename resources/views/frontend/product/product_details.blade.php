@@ -339,14 +339,35 @@
                 <div class="product-reviews">
                     <h4 class="title">Customer Reviews</h4>
 
-                    <div class="reviews">
-                        <div class="review">
-                            <div class="review-title"><span class="summary">We love this product</span><span class="date"><i class="fa fa-calendar"></i><span>1 days ago</span></span></div>
-                            <div class="text">"Lorem ipsum dolor sit amet, consectetur adipiscing elit.Aliquam suscipit."</div>
-                                                                                </div>
-                    
-                    </div><!-- /.reviews -->
-                </div><!-- /.product-reviews -->
+            @php
+               $reviews = App\Models\Review::where('product_id',$product->id)->latest()->limit(5)->get();
+            @endphp     
+
+                <div class="reviews">
+
+                   @foreach($reviews as $item)
+                     @if($item->status == 0)
+
+                     @else 
+                    <div class="review">
+                        <div class="row">
+                            <div class="col-md-3">
+    <img style="border-radius: 50%" src="{{ (!empty($item->user->profile_photo_path))? url('upload/user_images/'.$item->user->profile_photo_path):url('upload/no_image.jpg') }}" height="40px" width="40px"><b>{{ $item->user->name }}</b>
+
+                            
+
+                            </div>
+                        </div> <!--end row -->
+
+
+                        <div class="review-title">{{ $item->summary }}<span class="summary"></span><span class="date"><i class="fa fa-calendar"></i><span>{{ Carbon\Carbon::parse($item->created_at)->diffForHumans() }}</span></span></div>
+                        <div class="text">{{ $item->comment }}</div>
+                    </div>
+
+                     @endif
+                   @endforeach
+                </div><!-- /.reviews -->
+            </div><!-- /.product-reviews -->
                 
 
                 
@@ -364,27 +385,30 @@
 
          @else
         <div class="form-container">
-    <form role="form" class="cnt-form">  <!-- form -->
-        
+
+    <form role="form" class="cnt-form" method="POST" action="{{ route('review.store') }}">  <!-- form -->
+
+         @csrf  
+     	<input type="hidden" name="product_id" value="{{ $product->id }}">
         <div class="row">
             <div class="col-sm-6">
                 
                 <div class="form-group">
                     <label for="exampleInputSummary">Summary <span class="astk">*</span></label>
-                    <input type="text" class="form-control txt" id="exampleInputSummary" placeholder="">
+                    <input type="text" class="form-control txt" name="summary" id="exampleInputSummary" placeholder="">
                 </div><!-- /.form-group -->
             </div>
 
             <div class="col-md-6">
                 <div class="form-group">
                     <label for="exampleInputReview">Review <span class="astk">*</span></label>
-                    <textarea class="form-control txt txt-review" id="exampleInputReview" rows="4" placeholder=""></textarea>
+                    <textarea class="form-control txt txt-review" name="comment" id="exampleInputReview" rows="4" placeholder=""></textarea>
                 </div><!-- /.form-group -->
             </div>
         </div><!-- /.row -->
         
         <div class="action text-right">
-            <button class="btn btn-primary btn-upper">SUBMIT REVIEW</button>
+            <button type="submit" class="btn btn-primary btn-upper">SUBMIT REVIEW</button>
         </div><!-- /.action -->
 
     </form><!-- /end-form -->

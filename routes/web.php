@@ -319,6 +319,26 @@ Route::prefix('return')->group(function(){
 
 
 
+// Admin Review all Routes 
+Route::prefix('review')->group(function(){
+
+  Route::get('/pending', [ReviewController::class, 'PendingReview'])->name('pending.review');
+  Route::get('/admin/approve/{id}', [ReviewController::class, 'ReviewApprove'])->name('review.approve');
+  Route::get('/publish', [ReviewController::class, 'PublishReview'])->name('publish.review');
+  Route::get('/delete/{id}', [ReviewController::class, 'DeleteReview'])->name('delete.review');
+ 
+  
+  
+});
+
+
+
+
+
+
+
+
+
  //// Frontend All Routes /////
 /// Multi Language All Routes ////
 
@@ -405,10 +425,17 @@ Route::group(['prefix'=>'user','middleware' => ['user','auth'],'namespace'=>'Use
 
  Route::post('/checkout/store/', [CheckoutController::class,'CheckoutStore'])->name('checkout.store');
 
- //  Frontend Blog Show Routes 
+ //Frontend Blog Show Routes 
  Route::get('/blog', [HomeBlogController::class,'AddBlogPost'])->name('home.blog');
  Route::get('/post/details/{id}', [HomeBlogController::class,'DetailsBlogPost'])->name('post.details');
  Route::get('/blog/category/post/{category_id}', [HomeBlogController::class, 'HomeBlogCatPost']);
+
+ /// Frontend Product Review Routes
+ Route::post('/review/store', [ReviewController::class,'ReviewStore'])->name('review.store');
+
+ 
+
+
 
 
 
