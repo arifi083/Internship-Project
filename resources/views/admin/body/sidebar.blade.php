@@ -256,6 +256,21 @@
           <li class="{{ ($route == 'all-user')? 'active':'' }}"><a href="{{ route('all-user') }}"><i class="ti-more"></i>All Users</a></li>
 			
 		  </ul>
+        </li> 
+        
+        
+        <li class="treeview {{ ($prefix=='/adminuserrole')? 'active':'' }}">
+          <a href="#">
+            <i data-feather="credit-card"></i>
+            <span>Admin User Role</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-right pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+          <li class="{{ ($route == 'all.admin.user')? 'active':'' }}"><a href="{{ route('all.admin.user') }}"><i class="ti-more"></i>All Admin User</a></li>
+			
+		  </ul>
         </li>  
 		  
 	
