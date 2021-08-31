@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Order;
 use App\Models\OrderItem;
+use App\Models\Product;
+use DB;
 use Auth;
 use PDF;
 use Carbon\Carbon;
@@ -126,6 +128,13 @@ class OrderController extends Controller
 
 	//  shipped to delivered
 	public function ShippedToDelivered($order_id){
+
+        $orderItem = OrderItem::where('order_id',$order_id)->get();
+		foreach($orderItem as $item){
+			Product::where('id',$item->product_id)
+			->update(['product_qty' => DB::raw('product_qty-'.$item->qty)]);
+		}
+
 		Order::findOrFail($order_id)->update(['status' => 'delivered']);
 		$notification = array(
 			'message' => 'Order Delivered Successfully',

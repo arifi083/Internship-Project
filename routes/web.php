@@ -333,6 +333,14 @@ Route::prefix('review')->group(function(){
 
 
 
+// Admin prduct stock Routes 
+
+Route::prefix('stock')->group(function(){
+
+  Route::get('/product', [ProductController::class, 'ProductStock'])->name('product-stock');
+  
+});
+
 
 
 
