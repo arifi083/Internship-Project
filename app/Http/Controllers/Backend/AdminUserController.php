@@ -87,7 +87,7 @@ class AdminUserController extends Controller
     public function UpdateAdminRole(Request $request){
 
         $admin_id = $request->id;
-        $old_image=$request->old_image;
+        $old_image = $request->old_image;
 
         if($request->file('profile_photo_path')){
 

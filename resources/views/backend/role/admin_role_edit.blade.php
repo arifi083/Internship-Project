@@ -8,7 +8,7 @@
 
 		 <!-- Basic Forms -->
 		  <div class="box">
-			<div class="box-header with-border">
+			<div class="box-header with-border"> 
 			  <h4 class="box-title">Create Admin User </h4>
 
 			</div>
