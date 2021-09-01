@@ -404,7 +404,7 @@ Route::post('/add-to-wishlist/{product_id}', [WishlistController::class,'AddToWi
 
 
 
-//wishlist page
+////// access login user 
 Route::group(['prefix'=>'user','middleware' => ['user','auth'],'namespace'=>'User'],function(){
 
    Route::get('/wishlist', [WishlistController::class,'ViewWishlist'])->name('wishlist');
@@ -419,6 +419,9 @@ Route::group(['prefix'=>'user','middleware' => ['user','auth'],'namespace'=>'Use
    Route::post('/return/order/{order_id}', [AllUserController::class,'ReturnOrder'])->name('return.order');
    Route::get('/return/order/list', [AllUserController::class,'ReturnOrderList'])->name('return.order.list');
    Route::get('/cancel/orders', [AllUserController::class,'CancelOrders'])->name('cancel.orders');
+
+   /// Order Traking Route 
+   Route::post('/order/tracking', [AllUserController::class,'OrderTracking'])->name('order.tracking');
 
    // My Cart Page All Routes  age akne silo. authenticated user access krte parto.
 });
