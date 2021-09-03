@@ -464,6 +464,9 @@ Route::group(['prefix'=>'user','middleware' => ['user','auth'],'namespace'=>'Use
  /// Product Search Routes
  Route::post('/search', [IndexController::class,'ProductSearch'])->name('product.search');
 
+ // Advance Search Routes 
+Route::post('search-product', [IndexController::class, 'SearchProduct']);
+
 
  
 
