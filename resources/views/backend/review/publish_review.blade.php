@@ -33,7 +33,7 @@
 	<tr>
 	<td>{{ $item->summary }}</td>
 	<td>{{ $item->comment }}</td>
-    <td>${{ $item->user->name }}</td>
+    <td>{{ $item->user->name }}</td>
     <td>{{ $item->product->product_name_en }}</td>
 
     <td> 
