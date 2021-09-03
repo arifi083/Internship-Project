@@ -461,6 +461,10 @@ Route::group(['prefix'=>'user','middleware' => ['user','auth'],'namespace'=>'Use
  /// Frontend Product Review Routes
  Route::post('/review/store', [ReviewController::class,'ReviewStore'])->name('review.store');
 
+ /// Product Search Routes
+ Route::post('/search', [IndexController::class,'ProductSearch'])->name('product.search');
+
+
  
 
 
