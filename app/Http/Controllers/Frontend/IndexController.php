@@ -26,8 +26,8 @@ class IndexController extends Controller
         $categories = Category::orderBy('category_name_en','ASC')->get();
         $featured = Product::where('featured',1)->orderBy('id','DESC')->limit(6)->get();
         $hot_deals = Product::where('hot_deals',1)->where('discount_price','!=',NULL)->orderBy('id','DESC')->limit(3)->get();
-        $special_offer = Product::where('special_offer',1)->orderBy('id','DESC')->limit(6)->get();
-        $special_deals = Product::where('special_deals',1)->orderBy('id','DESC')->limit(4)->get();
+        $special_offer = Product::where('special_offer',1)->orderBy('id','DESC')->limit(3)->get();
+        $special_deals = Product::where('special_deals',1)->orderBy('id','DESC')->limit(3)->get();
 
         $skip_category_0 = Category::skip(0)->first();   //this is 1 no category
         $skip_product_0 = Product::where('status',1)->where('category_id',$skip_category_0->id)->orderBy('id','DESC')->get();
@@ -40,7 +40,7 @@ class IndexController extends Controller
         //return $skip_category->id;
         //return $skip_category->id;
         //die();
-
+ 
         $blogpost  = BlogPost::latest()->get();
 
         return view('frontend.index',compact('categories','sliders','products','featured','hot_deals',
@@ -189,7 +189,7 @@ class IndexController extends Controller
 
 
 
-    // product search
+    // product search 
     
     public function ProductSearch(Request $request){
         $request->validate(["search" => "required"]);
@@ -199,7 +199,7 @@ class IndexController extends Controller
         $products = Product::where('product_name_en','LIKE',"%$item%")->get();
         return view('frontend.product.search',compact('products','categories'));
 
-    }//end method
+    }//end method 
 
 
 

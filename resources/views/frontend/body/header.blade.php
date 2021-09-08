@@ -80,7 +80,7 @@
         
         <div class="col-xs-12 col-sm-12 col-md-7 top-search-holder"> 
           <!-- /.contact-row --> 
-          <!-- ============================================================= SEARCH AREA ============================================================= -->
+          <!-- ======================== SEARCH AREA  ========================== -->
           <div class="search-area">
             <form  method="post" action="{{ route('product.search') }}">
                 @csrf
@@ -101,7 +101,7 @@
             </form>
             <div id="searchProducts"></div>
           </div>
-          <!-- /.search-area --> 
+          <!-- /.search-area -->  
           <!-- ============================================================= SEARCH AREA : END ============================================================= --> </div>
         <!-- /.top-search-holder -->
         
