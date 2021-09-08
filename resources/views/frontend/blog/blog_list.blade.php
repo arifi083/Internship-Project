@@ -40,7 +40,7 @@
 	<a href="{{ route('post.details',$blog->id) }}" class="btn btn-upper btn-primary read-more">read more</a>
 </div>
 
-@endforeach
+@endforeach 
 
 
 

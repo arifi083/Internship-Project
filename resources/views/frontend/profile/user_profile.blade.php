@@ -16,7 +16,7 @@
   <div class="card">
   	<h3 class="text-center"><span class="text-danger">Hi....</span><strong>{{ Auth::user()->name }}</strong> Update Your Profile  </h3>
 
-  	<div class="card-body">
+  	<div class="card-body"> 
   		
 
 

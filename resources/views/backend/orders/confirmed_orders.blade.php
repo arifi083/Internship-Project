@@ -34,7 +34,7 @@
 	<td>{{ $item->order_date }}</td>
 	<td>{{ $item->invoice_no }}</td>
     <td>${{ $item->amount }}</td>
-    <td>{{ $item->payment_method }}</td>
+    <td>{{ $item->payment_method }}</td> 
     <td> <span class="badge badge-pill badge-primary">{{ $item->status }} </span> </td>
 	<td>
 		<a href="{{ route('pending.order.details',$item->id) }}" class="btn btn-info" title="Edit Coupon"><i class="fa fa-eye"></i> </a>

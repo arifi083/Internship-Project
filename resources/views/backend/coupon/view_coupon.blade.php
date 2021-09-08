@@ -20,7 +20,7 @@
 					    <thead>
 						   <tr>
 							  <th>Coupon Name</th>
-							  <th>Coupon Discount</th>
+							  <th>Coupon Discount</th> 
 							  <th>Validity</th>
                               <th>Status</th>
 							  <th>Action</th>	

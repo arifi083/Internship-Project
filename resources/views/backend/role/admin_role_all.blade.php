@@ -117,7 +117,7 @@
 			@endif
 
 			@if($item->adminuserrole  == 1)
-			<span class="badge btn-dark">Adminuserrole </span>
+			<span class="badge btn-dark">Adminuserrole </span> 
 			@else
 			@endif
 

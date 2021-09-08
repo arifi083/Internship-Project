@@ -22,7 +22,7 @@
                                <label for=""> Date</label>
                              </td>
                              <td class="col-md-3">
-                                <label for=""> Total</label>
+                                <label for=""> Total Amount</label>
                              </td>
                              <td class="col-md-3">
                                 <label for="">Payment</label>
@@ -48,7 +48,7 @@
                                <label for="">{{ $order->order_date }}</label>
                              </td>
                              <td class="col-md-3">
-                                <label for="">{{ $order->amount }}</label>
+                                <label for="">${{ $order->amount }}</label>
                              </td>
                              <td class="col-md-3">
                                 <label for="">{{ $order->payment_method }}</label>
@@ -85,8 +85,8 @@
 
                @endif
 
-
-             </label>
+ 
+             </label> 
 
         </td>
                              <td class="col-md-1">

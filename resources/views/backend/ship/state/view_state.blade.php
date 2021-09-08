@@ -1,5 +1,6 @@
 @extends('admin.admin_master')
 @section('admin')
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 <!-- Content Wrapper. Contains page content  -->
 <div class="container-full">
@@ -97,10 +98,6 @@
 
                           <option value="" selected="" disabled="">Select District</option>
 
-                          @foreach($districts as $dis)
-                          <option value="{{ $dis->id }}"> {{ $dis->district_name }} </option>
-                          @endforeach
-
                           @error('district_id') 
 	                           <span class="text-danger">{{ $message }}</span>
 	                     @enderror
@@ -157,6 +154,41 @@
 	  </div>
  
   <!-- /.content-wrapper -->
+
+
+
+
+  
+<!-- shipDistrict js file -->
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('select[name="division_id"]').on('change', function(){
+            var division_id = $(this).val();
+            if(division_id) {
+                $.ajax({
+                    url: "{{  url('/district-get/ajax') }}/"+division_id,
+                    type:"GET",
+                    dataType:"json",
+                    success:function(data) {
+                     // $('select[name="subsubcategory_id"]').html('');
+					   $('select[name="state_id"]').empty(); 
+                       var d =$('select[name="district_id"]').empty();
+                          $.each(data, function(key, value){
+                              $('select[name="district_id"]').append('<option value="'+ value.id +'">' + value.district_name + '</option>');
+                          });
+                    },
+                });
+            } else {
+                alert('danger');
+            }
+        });
+
+       
+    });
+
+</script>
+
+
 
 
 

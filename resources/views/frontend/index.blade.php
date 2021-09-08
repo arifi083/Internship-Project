@@ -252,21 +252,21 @@
         <div id="hero">
           <div id="owl-main" class="owl-carousel owl-inner-nav owl-ui-sm">
 
-           @foreach($sliders as $slider)
+          @foreach($sliders as $slider)
             <div class="item" style="background-image: url({{ asset($slider->slider_img) }});">
               <div class="container-fluid">
                 <div class="caption bg-color vertical-center text-left">
-                  
-                  <div class="big-text fadeInDown-1">{{ $slider->title }}</div>
+          
+                  <div class="big-text fadeInDown-1">{{ $slider->title }} </div>
                   <div class="excerpt fadeInDown-2 hidden-xs"> <span>{{ $slider->description }}</span> </div>
                   <div class="button-holder fadeInDown-3"> <a href="index.php?page=single-product" class="btn-lg btn btn-uppercase btn-primary shop-now-button">Shop Now</a> </div>
-                </div>
-                <!-- /.caption --> 
-              </div>
-              <!-- /.container-fluid --> 
-            </div>
-            <!-- /.item -->
-          @endforeach  
+               </div>
+               <!-- /.caption --> 
+             </div>
+            <!-- /.container-fluid --> 
+          </div>
+           <!-- /.item -->
+         @endforeach
             
           </div>
           <!-- /.owl-carousel --> 
@@ -669,10 +669,10 @@
                         <!-- /.product-price --> 
                         
                       </div>
-              <!-- /.product-info -->
-      <div class="cart clearfix animate-effect">
+              <!-- /.product-info   -->
+      <div class="cart clearfix animate-effect"> 
         <div class="action">
-          <ul class="list-unstyled"> 
+          <ul class="list-unstyled">  
               <li class="add-cart-button btn-group">
                  <button  class="btn btn-primary icon" type="button" title="Add Cart" id="{{ $product->id }}"
                   data-toggle="modal" data-target="#exampleModal" onclick="productView(this.id)" > 
@@ -1338,7 +1338,7 @@
         
 
 
-        <!-- ========================= BLOG SLIDER ======================================= -->
+        <!-- ========================= BLOG SLIDER  ======================================= -->
         <section class="section latest-blog outer-bottom-vs wow fadeInUp">
           <h3 class="section-title">Latest Form Blog</h3>
           <div class="blog-slider-container outer-top-xs">

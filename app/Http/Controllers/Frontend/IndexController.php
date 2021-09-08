@@ -17,11 +17,11 @@ use Illuminate\Support\Facades\Hash;
 use Auth; 
 
 
-class IndexController extends Controller
+class IndexController extends Controller 
 {
     public function index(){
 
-        $products = Product::where('status',1)->orderBy('id','DESC')->limit(6)->get();
+        $products = Product::where('status',1)->orderBy('id','DESC')->limit(8)->get();
         $sliders = Slider::where('status',1)->orderBy('id','DESC')->limit(3)->get();
         $categories = Category::orderBy('category_name_en','ASC')->get();
         $featured = Product::where('featured',1)->orderBy('id','DESC')->limit(6)->get();
@@ -50,7 +50,7 @@ class IndexController extends Controller
 
     public function UserLogout(){
         Auth::logout();
-        return redirect()->route('login');
+        return redirect()->route('login');  
     }
 
     public function UserProfile(){
@@ -126,7 +126,7 @@ class IndexController extends Controller
         $size_hin = $product->product_size_hin;
         $product_size_hin = explode(',',$size_hin);
 
-        $mulitImg = MultiImg::where('product_id',$id)->get();
+        $mulitImg = MultiImg::where('product_id',$id)->get(); 
 
         $cat_id = $product->category_id;
         $reletedProduct = Product::where('category_id',$cat_id)->where('id','!=',$id)->orderBy('id','DESC')->get();

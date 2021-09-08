@@ -1,7 +1,7 @@
 @extends('admin.admin_master')
 @section('admin')
 
-<!-- Content Wrapper. Contains page  content -->
+<!-- Content Wrapper. Contains page  content --> 
 <div class="container-full">
 		
 	<!-- Main content -->
@@ -17,7 +17,7 @@
 
             <div class="box">
                <div class="box-header with-border">
-	            <h3 class="box-title">Search By Date</h3>
+	            <h3 class="box-title">Search  By Date</h3>
 	        </div>
 	       <!-- /.box-header -->
 	          <div class="box-body">
@@ -172,7 +172,7 @@
 
 <div class="box">
    <div class="box-header with-border">
-    <h3 class="box-title">Select Year</h3>
+    <h3 class="box-title">Search By Year</h3>
 </div>
 <!-- /.box-header -->
   <div class="box-body">

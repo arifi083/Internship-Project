@@ -122,7 +122,7 @@
             @if($item->size == NULL)
               -------
             @else
-              {{ $item->size }}
+              {{ $item->size }} 
             @endif
         </td>
         <td align="center">{{ $item->color }}</td>
@@ -139,8 +139,8 @@
   <table width="100%" style=" padding:0 10px 0 10px;">
     <tr>
         <td align="right" >
-            <h2><span style="color: green;">Subtotal:</span> ${{ $item->amount}} </h2>
-            <h2><span style="color: green;">Total:</span> ${{ $item->amount}} </h2>
+            <h2><span style="color: green;">Subtotal:</span> ${{ $order->amount}} </h2>
+            <h2><span style="color: green;">Total:</span> ${{ $order->amount}} </h2>
             {{-- <h2><span style="color: green;">Full Payment PAID</h2> --}}
         </td>
     </tr>

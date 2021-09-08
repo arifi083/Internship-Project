@@ -52,18 +52,14 @@
                     <div class="form-group">
 			           <h5>Meta Description <span class="text-danger">*</span></h5>
 			           <div class="controls">
-	                       <textarea name="meta_description" id="textarea" class="form-control" required placeholder="Textarea text">
-		                      {{ $seo->meta_description }}
-	                       </textarea>     
+<textarea name="meta_description" id="textarea" class="form-control" required placeholder="Textarea text">{{ $seo->meta_description }}</textarea>     
 	 		            </div>
 		            </div>
 
                     <div class="form-group">
 			           <h5>Google Analytics<span class="text-danger">*</span></h5>
 			           <div class="controls">
-	                       <textarea name="google_analytics" id="textarea" class="form-control" required placeholder="Textarea text">
-		                      {{ $seo->google_analytics }}
-	                       </textarea>     
+<textarea name="google_analytics" id="textarea" class="form-control" required placeholder="Textarea text">{{ $seo->google_analytics }}</textarea>     
 	 		            </div>
 		            </div>
       

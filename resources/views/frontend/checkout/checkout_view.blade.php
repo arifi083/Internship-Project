@@ -105,7 +105,7 @@
 	              @enderror 
 
 		        </div>
-		    </div> <!-- // end form group  -->
+		    </div> <!-- // end form group   -->
 					
 			
 
@@ -279,7 +279,7 @@
 					<img src="{{ asset('frontend/assets/images/payments/6.png') }}">
 				</div>	<!-- end col-md-4 -->
 
-			</div> <!-- end row -->
+			</div> <!-- end row --> 
             <hr>
            <button type="submit" class="btn-upper btn btn-primary checkout-page-button">Payment Step</button>
 

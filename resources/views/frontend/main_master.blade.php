@@ -270,7 +270,7 @@ function productView(id){
     })
  
 }
-// End ProductView with Modal
+// End ProductView with Modal 
 
 
 // Start Add to cart product
@@ -313,7 +313,7 @@ function addToCart(){
                   })
                 }
 
-              //end message
+              //end message 
 
 
           }
@@ -462,7 +462,7 @@ function addToCart(){
 
 
 
-<!--  /// load Wishlist Page  //// -->
+<!--  /// load Wishlist Page  //// --> 
 
 <script type="text/javascript">
       function wishlist(){
@@ -564,7 +564,7 @@ function addToCart(){
 
 
 
-<!--  /// load MyCart Page  //// -->
+<!--  /// load MyCart Page   //// -->
 
 
 <script type="text/javascript">
@@ -586,7 +586,7 @@ function addToCart(){
 						  <div class="product-name"><a href="#">${value.name}</a></div>
 						
 					    	<div class="price">
-                  ${value.price}
+                  $${value.price}
 						    </div>
 				   	</td>
              <td class="col-md-2">
@@ -727,7 +727,7 @@ function addToCart(){
 
 
 
-<!--  //////////////// =========== Coupon Apply Start ================= ////  -->
+<!--  //////////////// =========== Coupon  Apply Start ================= ////  -->
 
 <script type="text/javascript">
      function applyCoupon(){

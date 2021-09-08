@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Blog\BlogPostCategory;
 use App\Models\Blog\BlogPost;
 
-class HomeBlogController extends Controller
+class HomeBlogController extends Controller 
 {
     public function AddBlogPost(){
         

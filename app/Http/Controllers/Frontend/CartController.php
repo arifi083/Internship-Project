@@ -141,7 +141,7 @@ class CartController extends Controller
 
 
 
-    //checkout method
+    //checkout method  
     public function CheckoutCreate(){
         if(Auth::check()){
             if(Cart::total() > 0){

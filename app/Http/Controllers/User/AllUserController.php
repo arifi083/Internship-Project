@@ -26,7 +26,7 @@ class AllUserController extends Controller
         $orderItem  = OrderItem::with('product')->where('order_id',$order_id)->orderBy('id','DESC')->get();
         return view('frontend.user.order.order_details',compact('order','orderItem'));
 
-    } //end method
+    } //end method 
 
 
     public function InvoiceDownload($order_id){
@@ -40,7 +40,7 @@ class AllUserController extends Controller
         ]);
         return $pdf->download('invoice.pdf');
 
-    } //end method
+    } //end method 
 
 
 
@@ -90,7 +90,7 @@ class AllUserController extends Controller
 
        if($track){
 
-           //echo "<pre>";
+           //echo "<pre>"; 
            //print_r($track);
            return view('frontend.tracking.tracking_order',compact('track'));
 

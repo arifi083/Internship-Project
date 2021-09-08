@@ -17,12 +17,13 @@
             @if(session()->get('language') == 'hindi') चेक आउट @else Checkout @endif</a></li>
 
      <li><a href="" type="button" data-toggle="modal" data-target="#ordertraking"><i class="icon fa fa-check"></i>Order Traking</a></li>
-
-            @auth
-              <li><a href="{{ route('login') }}"><i class="icon fa fa-user">   user profile </i></a></li>
+           <li>
+             @auth
+               <a href="{{ route('login') }}"><i class="icon fa fa-user"></i>User Profile</a>
             @else
-              <li><a href="{{ route('login') }}"><i class="icon fa fa-lock">   Login/Register </i></a></li>
-            @endauth
+              <a href="{{ route('login') }}"><i class="icon fa fa-lock"></i>Login/Register</a>
+             @endauth
+          </li>
           </ul>
         </div>
         <!-- /.cnt-account -->
@@ -119,7 +120,7 @@
             </a>
             <ul class="dropdown-menu">
               <li>
-         <!--   // Mini Cart Start with Ajax -->
+         <!--   // Mini Cart Start with  Ajax -->
          <div id="miniCart">
            
          </div>
@@ -129,7 +130,7 @@
               <div class="pull-right"> <span class="text">Sub Total :</span>
                 <span class='price'  id="cartSubTotal"> </span> </div>
                 <div class="clearfix"></div>
-                <a href="checkout.html" class="btn btn-upper btn-primary btn-block m-t-20">Checkout</a> </div>
+                <a href="{{ route('checkout') }}" class="btn btn-upper btn-primary btn-block m-t-20">Checkout</a> </div>
                 <!-- /.cart-total-->   
               </li>
             </ul>
@@ -181,7 +182,7 @@
         <li>
           <div class="yamm-content ">
             <div class="row">
-            <!--   // Get SubCategory Table Data -->
+            <!--   // Get SubCategory Table Data --> 
             @php
               $subcategories = App\Models\SubCategory::where('category_id',$category->id)->orderBy('subcategory_name_en','ASC')->get();
             @endphp
@@ -243,7 +244,7 @@
     
   </div>
   <!-- /.header-nav --> 
-  <!-- ============================================== NAVBAR : END ============================================== --> 
+  <!-- ============================================== NAVBAR :  END ============================================== --> 
   
 
 

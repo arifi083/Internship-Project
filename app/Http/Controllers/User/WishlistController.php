@@ -38,7 +38,7 @@ class WishlistController extends Controller
 
 
     public function ViewWishlist(){
-        return view('frontend.wishlist.wishlist_view');  
+        return view('frontend.wishlist.wishlist_view');   
 
     }
 

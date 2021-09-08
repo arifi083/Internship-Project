@@ -14,7 +14,7 @@
 
 
     <div class="tag-list"> 
-        @if(session()->get('language') == 'hindi') 
+        @if(session()->get('language') == 'hindi')  
 
              @foreach($tag_hin as $tag)
               <a class="item active" title="Phone" href="{{ url('product/tag/'.$tag->product_tags_hin) }}">

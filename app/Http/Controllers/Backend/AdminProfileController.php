@@ -22,7 +22,7 @@ class AdminProfileController extends Controller
     public function AdminProfileEdit(){
 
         $id = Auth::user()->id;
-        $editData=Admin::find($id);
+        $editData=Admin::find($id); 
         return view('admin.profile.admin_profile_edit',compact('editData'));
     }
 
@@ -72,7 +72,7 @@ class AdminProfileController extends Controller
         else{
             return redirect()->back();
         }
-    }//end method
+    }//end method 
 
 
     public function AllUsers(){

@@ -97,7 +97,7 @@
 					     <div class="col-xs-12 col-sm-6 col-md-5 gallery-holder">
     <div class="product-item-holder size-big single-product-gallery small-gallery">
 
-        <div id="owl-single-product">   <!-- -->
+        <div id="owl-single-product">   <!-- single images -->
    
     @foreach($mulitImg as $img)
     <div class="single-product-gallery-item" id="slide{{ $img->id }}">
@@ -117,7 +117,7 @@
 
 <div class="single-product-gallery-thumbs gallery-thumbs">
 
-    <div id="owl-single-product-thumbnails">   <!-- thumbnails image-->
+    <div id="owl-single-product-thumbnails">   <!-- thumbnails image multiple images-->
 
        @foreach($mulitImg as $img)
         <div class="item">
@@ -342,7 +342,8 @@
                             <div class="arrow plus gradient"><span class="ir"><i class="icon fa fa-sort-asc"></i></span></div>
                             <div class="arrow minus gradient"><span class="ir"><i class="icon fa fa-sort-desc"></i></span></div>
                         </div>
-                        <input type="text" id="qty" value="1" min="1">
+                        
+                        <input type="number" id="qty" value="1" min="1">
                     </div>
                 </div>
             </div>
@@ -354,7 +355,7 @@
             </div>
 
             
-        </div><!-- /.row -->
+        </div><!-- /.row  -->
     </div><!-- /.quantity-container -->
 
     
@@ -611,9 +612,22 @@
 				<a href="{{ url('product/details/'.$product->id.'/'.$product->product_slug_en) }}">
 				  <img  src="{{ asset($product->product_thambnail) }}" alt="">
 				</a>
-			</div><!-- /.image -->			
+			</div><!-- /.image -->	
 
-			            <div class="tag sale"><span>sale</span></div>            		   
+               @php
+                  $amount = $product->selling_price - $product->discount_price;
+                  $discount = ($amount/$product->selling_price)*100;
+               @endphp
+             
+                 <div>
+                     @if($product->discount_price ==NULL)
+                        <div class="tag new"><span>new</span></div>
+                    @else
+                        <div class="tag hot"><span>{{ round($discount) }}%</span></div>
+                     @endif
+                </div>
+
+			                       		   
 		</div><!-- /.product-image -->
 			
 		

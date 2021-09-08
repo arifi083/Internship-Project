@@ -38,7 +38,7 @@ class ShippingAreaController extends Controller
 
         return Redirect()->back()->with($notification);
 
-    }  //end method
+    }  //end method 
 
 
     public function DivisionEdit($id){

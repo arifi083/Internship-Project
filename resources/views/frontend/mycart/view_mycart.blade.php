@@ -20,7 +20,7 @@
 	<div class="container">
     <div class="row ">
 			<div class="shopping-cart">
-				<div class="shopping-cart-table ">
+				<div class="shopping-cart-table "> 
 	<div class="table-responsive">
 		<table class="table">
 			<thead>
@@ -37,7 +37,7 @@
 			</thead>
 			<tbody id="cartPage">
 				
-				
+				 
 			</tbody>
 		</table>
 	</div>

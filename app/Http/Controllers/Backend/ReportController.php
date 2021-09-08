@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Backend;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use DateTime;
-use App\Models\Order;
+use App\Models\Order; 
 
 class ReportController extends Controller
 {

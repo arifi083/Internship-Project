@@ -21,7 +21,7 @@ class CheckoutController extends Controller
     }
 
     public function CheckoutStore(Request $request){
-        //dd($request->all());
+        //dd($request->all()); 
 
         $data = array();
         $data['shipping_name'] = $request->shipping_name;

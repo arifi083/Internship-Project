@@ -114,7 +114,7 @@
 
     
 <div class="sidebar-widget outer-bottom-xs wow fadeInUp">
-	<h3 class="section-title">Blog Category</h3>
+	<h3 class="section-title">Blog Category</h3> 
 	<div class="sidebar-widget-body m-t-10">
 		<div class="accordion">
 

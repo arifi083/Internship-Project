@@ -87,6 +87,7 @@ Route::middleware(['auth:sanctum,web', 'verified'])->get('/dashboard', function 
     return view('dashboard',compact('user'));
 })->name('dashboard');
 
+
 Route::get('/', [IndexController::class, 'index']);
 Route::get('/user/logout', [IndexController::class, 'UserLogout'])->name('user.logout');
 Route::get('/user/profile', [IndexController::class, 'UserProfile'])->name('user.profile');
@@ -378,10 +379,10 @@ Route::get('/product/details/{id}/{slug}', [IndexController::class, 'ProductDeta
 // Frontend Product Tags Page 
 Route::get('/product/tag/{tag}', [IndexController::class, 'TagWiseProduct']);
 
-// Frontend SubCategory wise Data
+// Frontend SubCategory wise product Data
 Route::get('/subcategory/product/{subcat_id}/{slug}', [IndexController::class, 'SubCatWiseProduct']);
 
-// Frontend SubCategory wise Data
+// Frontend SubSubCategory wise Product Data
 Route::get('/subsubcategory/product/{subsubcat_id}/{slug}', [IndexController::class, 'SubSubCatWiseProduct']);
 
 // product view model with ajax
@@ -399,12 +400,12 @@ Route::get('/product/mini/cart/', [CartController::class,'AddMiniCart']);
 Route::get('/minicart/product-remove/{rowId}', [CartController::class,'RemoveMiniCart']);
 
 // Add to WishList
-Route::post('/add-to-wishlist/{product_id}', [WishlistController::class,'AddToWishlist']);
+Route::post('/add-to-wishlist/{product_id}', [WishlistController::class,'AddToWishlist']); 
 
 
 
 
-////// access login user 
+////// access login user   
 Route::group(['prefix'=>'user','middleware' => ['user','auth'],'namespace'=>'User'],function(){
 
    Route::get('/wishlist', [WishlistController::class,'ViewWishlist'])->name('wishlist');
@@ -443,7 +444,7 @@ Route::group(['prefix'=>'user','middleware' => ['user','auth'],'namespace'=>'Use
  Route::get('/coupon-remove', [CartController::class,'CouponRemove']);
 
 
- // Check out route
+ // Check out route  
  Route::get('/checkout', [CartController::class,'CheckoutCreate'])->name('checkout');
 
  //district data

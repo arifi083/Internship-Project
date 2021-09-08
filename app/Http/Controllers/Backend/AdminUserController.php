@@ -8,7 +8,7 @@ use App\Models\Admin;
 use Carbon\Carbon;
 use Image;
 use Auth;
-use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Hash; 
 
 
 

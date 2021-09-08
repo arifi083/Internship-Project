@@ -65,7 +65,7 @@
   <script src="{{ asset('../assets/vendor_components/datatable/datatables.min.js') }}"></script>
 	<script src="{{ asset('backend/js/pages/data-table.js') }}"></script>
 
-   <!-- input tags -->  {{ asset('') }}
+   <!-- input tags  {{ asset('') }}--> 
    <script src="{{ asset('../assets/vendor_components/bootstrap-tagsinput/dist/bootstrap-tagsinput.js') }}"></script>
 
 	<!-- Ck Editor -->
