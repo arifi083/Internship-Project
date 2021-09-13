@@ -100,7 +100,7 @@
 
                           @error('district_id') 
 	                           <span class="text-danger">{{ $message }}</span>
-	                     @enderror
+	                       @enderror
 
                        </select>
                     </div>
