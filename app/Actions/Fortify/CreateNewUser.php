@@ -40,6 +40,6 @@ class CreateNewUser implements CreatesNewUsers
             'alert-type' => 'success'
         );
 
-        return redirect()->route('dashboard')->with($notification);
+        return redirect()->route('login')->with($notification);
     }
 }
