@@ -45,7 +45,8 @@ class IndexController extends Controller
         //die();
  
         $blogpost  = BlogPost::latest()->get();
-
+        
+        //best selling
         $items = DB::table('order_items')->select('product_id',DB::raw('COUNT(product_id) as count'))->groupBy('product_id')->orderBy("count",'desc')->get();
         $product_ids =[];
         foreach($items as $item){
@@ -55,9 +56,23 @@ class IndexController extends Controller
         $best_selling = Product::whereIn('id',$product_ids)->get();
         //return $best_selling;
 
+
+
+        //top rated product
+        $items_rated = DB::table('reviews')->select('product_id',DB::raw('AVG(rating) as count'))->groupBy('product_id')->orderBy("count",'desc')->get();
+        $product_ids =[];
+        foreach($items_rated as $item){
+            array_push($product_ids,$item->product_id);
+        }
+        //return $product_ids;
+        $idsImploded = implode(',',array_fill(0,count($product_ids),'?'));
+        $best_rated = Product::whereIn('id',$product_ids)->orderByRaw("field(id,{$idsImploded})",$product_ids)->get();
+        //return $best_rated;
+
+
         return view('frontend.index',compact('categories','sliders','products','featured','hot_deals',
         'special_offer','special_deals','skip_category_0','skip_product_0',
-        'skip_category_1','skip_product_1','skip_brand_1','skip_brand_product_1','blogpost','best_selling'));
+        'skip_category_1','skip_product_1','skip_brand_1','skip_brand_product_1','blogpost','best_selling','best_rated'));
     }
 
     public function UserLogout(){
