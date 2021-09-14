@@ -55,41 +55,45 @@
 		<div class="col-md-12">
 			<h4>Leave A Comment</h4>
 		</div>
-		<div class="col-md-4">
-			<form class="register-form" role="form">
+
+		<form class="register-form" role="form" action="{{ route('blog.comment') }}" method="POST">
+			@csrf
+		   <div class="col-md-4">
+			
 				<div class="form-group">
-			    <label class="info-title" for="exampleInputName">Your Name <span>*</span></label>
-			    <input type="email" class="form-control unicase-form-control text-input" id="exampleInputName" placeholder="">
-			  </div>
-			</form>
-		</div>
+			      <label class="info-title" for="exampleInputName">Your Name <span>*</span></label>
+			      <input type="text" name="name" class="form-control unicase-form-control text-input" id="exampleInputName" placeholder="your name" required="">
+			   </div>
+			
+		   </div>
 		<div class="col-md-4">
-			<form class="register-form" role="form">
-				<div class="form-group">
+			
+			<div class="form-group">
 			    <label class="info-title" for="exampleInputEmail1">Email Address <span>*</span></label>
-			    <input type="email" class="form-control unicase-form-control text-input" id="exampleInputEmail1" placeholder="">
-			  </div>
-			</form>
+			    <input type="email" name="email" class="form-control unicase-form-control text-input" id="exampleInputEmail1" placeholder="your email address"  required="">
+			</div>
+			
 		</div>
 		<div class="col-md-4">
-			<form class="register-form" role="form">
-				<div class="form-group">
+			
+			<div class="form-group">
 			    <label class="info-title" for="exampleInputTitle">Title <span>*</span></label>
-			    <input type="email" class="form-control unicase-form-control text-input" id="exampleInputTitle" placeholder="">
-			  </div>
-			</form>
+			    <input type="text" name="title" class="form-control unicase-form-control text-input" id="exampleInputTitle" placeholder="title"  required="">
+			</div>
+			
 		</div>
 		<div class="col-md-12">
-			<form class="register-form" role="form">
-				<div class="form-group">
+			
+			<div class="form-group">
 			    <label class="info-title" for="exampleInputComments">Your Comments <span>*</span></label>
-			    <textarea class="form-control unicase-form-control" id="exampleInputComments" ></textarea>
-			  </div>
-			</form>
+			    <textarea class="form-control unicase-form-control" name="comment" id="exampleInputComments"  required="" placeholder="your comment" ></textarea>
+			</div>
+			
 		</div>
 		<div class="col-md-12 outer-bottom-small m-t-20">
 			<button type="submit" class="btn-upper btn btn-primary checkout-page-button">Submit Comment</button>
 		</div>
+   </form>
 	</div>
 </div>
 				</div>
@@ -142,22 +146,7 @@
 
 
 <!-- =========================== PRODUCT TAGS =================================== -->
-<div class="sidebar-widget product-tag wow fadeInUp">
-	<h3 class="section-title">Product tags</h3>
-	<div class="sidebar-widget-body outer-top-xs">
-		<div class="tag-list">					
-			<a class="item" title="Phone" href="category.html">Phone</a>
-			<a class="item active" title="Vest" href="category.html">Vest</a>
-			<a class="item" title="Smartphone" href="category.html">Smartphone</a>
-			<a class="item" title="Furniture" href="category.html">Furniture</a>
-			<a class="item" title="T-shirt" href="category.html">T-shirt</a>
-			<a class="item" title="Sweatpants" href="category.html">Sweatpants</a>
-			<a class="item" title="Sneaker" href="category.html">Sneaker</a>
-			<a class="item" title="Toys" href="category.html">Toys</a>
-			<a class="item" title="Rose" href="category.html">Rose</a>
-		</div><!-- /.tag-list -->
-	</div><!-- /.sidebar-widget-body -->
-</div><!-- /.sidebar-widget -->
+
 <!-- ============================================== PRODUCT TAGS : END ============================================== -->					</div>
 				</div>
 			</div>

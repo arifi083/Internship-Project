@@ -16,7 +16,7 @@ use App\Models\Blog\BlogPost;
 use Illuminate\Support\Facades\Hash;
 use Auth; 
 
-
+ 
 class IndexController extends Controller 
 {
     public function index(){

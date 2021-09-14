@@ -459,6 +459,8 @@ Route::group(['prefix'=>'user','middleware' => ['user','auth'],'namespace'=>'Use
  Route::get('/blog', [HomeBlogController::class,'AddBlogPost'])->name('home.blog');
  Route::get('/post/details/{id}', [HomeBlogController::class,'DetailsBlogPost'])->name('post.details');
  Route::get('/blog/category/post/{category_id}', [HomeBlogController::class, 'HomeBlogCatPost']);
+ Route::post('/blog/comment', [HomeBlogController::class, 'BlogCommentStore'])->name('blog.comment');
+
 
  /// Frontend Product Review Routes
  Route::post('/review/store', [ReviewController::class,'ReviewStore'])->name('review.store');

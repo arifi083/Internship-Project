@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Category;
 use App\Models\Product;
 use App\Models\Brand;
-
+ 
 class ShopController extends Controller
 {
     public function ShopPage(){
@@ -17,7 +17,7 @@ class ShopController extends Controller
         if (!empty($_GET['category'])) {
             $slugs = explode(',',$_GET['category']);
             $catIds = Category::select('id')->whereIn('category_slug_en',$slugs)->pluck('id')->toArray();
-            $products = $products->whereIn('category_id',$catIds)->paginate(3);
+            $products = $products->whereIn('category_id',$catIds);
         }
          if (!empty($_GET['brand'])) {
             $slugs = explode(',',$_GET['brand']);

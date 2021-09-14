@@ -530,7 +530,7 @@ Shop Page
                     </div>
                     <!-- /.product-list --> 
                   </div>
-                  <!-- /.products --> 
+                  <!-- /.products -->  
                 </div>
                 <!-- /.category-product-inner -->
     @endforeach
