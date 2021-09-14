@@ -136,7 +136,7 @@
 
         </div><!-- /.gallery-thumbs -->
 
-    </div><!-- /.single-product-gallery -->
+    </div><!-- /.single-product-gallery --> 
 </div><!-- /.gallery-holder -->  
 
    @php

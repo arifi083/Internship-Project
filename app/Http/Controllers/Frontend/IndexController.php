@@ -12,8 +12,11 @@ use App\Models\Product;
 use App\Models\Slider;
 use App\Models\MultiImg;
 use App\Models\Brand;
+use App\Models\OrderItem;
+use App\Models\Order;
 use App\Models\Blog\BlogPost;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\DB;
 use Auth; 
 
  
@@ -43,9 +46,18 @@ class IndexController extends Controller
  
         $blogpost  = BlogPost::latest()->get();
 
+        $items = DB::table('order_items')->select('product_id',DB::raw('COUNT(product_id) as count'))->groupBy('product_id')->orderBy("count",'desc')->get();
+        $product_ids =[];
+        foreach($items as $item){
+            array_push($product_ids,$item->product_id);
+        }
+        //return $product_ids; 
+        $best_selling = Product::whereIn('id',$product_ids)->get();
+        //return $best_selling;
+
         return view('frontend.index',compact('categories','sliders','products','featured','hot_deals',
         'special_offer','special_deals','skip_category_0','skip_product_0',
-        'skip_category_1','skip_product_1','skip_brand_1','skip_brand_product_1','blogpost'));
+        'skip_category_1','skip_product_1','skip_brand_1','skip_brand_product_1','blogpost','best_selling'));
     }
 
     public function UserLogout(){
@@ -229,3 +241,4 @@ class IndexController extends Controller
 
 
 }
+ 
